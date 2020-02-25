@@ -8,6 +8,8 @@ OBJS = $(SRC:%.c=%.o)
 
 FLAGS = -Wall -Wextra -Werror -I. -c
 
+SOFLAGS = -c -Wall -Wextra -Werror -fpic
+
 GREEN = '\033[0;32m'
 RED = '\033[0;31m'
 RESET = '\033[0m'
@@ -15,9 +17,12 @@ RESET = '\033[0m'
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	gcc $(FLAGS) $(SRC)
 	ar rc $@ $(OBJS)
 	ranlib $@
+
+so: $(SRC)
+	gcc $(SOFLAGS) $(SRC)
+	gcc -shared -o libft.so $(wildcard *.o)
 
 clean:
 	@echo $(RED)Removendo $(OBJS)$(RESET) # @ remove a ação do prompt
@@ -29,4 +34,4 @@ fclean:
 
 re:	fclean all
 
-.PHONY:	clean fclean re
+.PHONY:	clean fclean all re

@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 14:09:57 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/02/03 14:10:24 by mtaiar-s         ###   ########.fr       */
+/*   Created: 2020/02/13 15:43:03 by mtaiar-s          #+#    #+#             */
+/*   Updated: 2020/02/13 15:55:15 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int     ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char			*cdest;
-	char			*csrc;
-	char			buff[n];
-	unsigned long	i;
+	size_t  i;
 
-	cdest = (char *)dest;
-	csrc = (char *)src;
 	i = -1;
 	while (++i < n)
-		buff[i] = csrc[i];
-	i = -1;
-	while (++i < n)
-		cdest[i] = buff[i];
-	return (cdest);
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+	}
+	return (0);
 }
