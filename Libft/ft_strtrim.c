@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 16:08:11 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/02 15:12:56 by mtaiar-s         ###   ########.fr       */
+/*   Created: 2020/02/28 14:33:29 by mtaiar-s          #+#    #+#             */
+/*   Updated: 2020/03/02 15:06:38 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char    *ft_strtrim(char const *s1, char const *set)
 {
-    int     i;
-    char    *str;
+    size_t  i;
+    size_t  j;
 
-    if (!s || !(*f))
+    if (!s1 || !set)
         return (NULL);
-    if (!(str = malloc(ft_strlen((char *)s) + 1)))
-        return (NULL);
-    i = -1;
-    while (s[++i])
-        str[i] = f((unsigned int)i, s[i]);
-    str[i] = '\0';
-    return (str);
+    i = 0;
+    j = 0;
+    while (s1[j] && ft_strchr(set, s1[j]))
+        j++;
+    i = ft_strlen(s1);
+    if (i == j)
+        return (strdup(""));
+    while (i && ft_strchr(set, s1[i]))
+        i--;
+    return (ft_substr(s1, j, i - j + 1));
 }
