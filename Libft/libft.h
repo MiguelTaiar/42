@@ -6,7 +6,7 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 15:02:14 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/03 22:36:17 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/04 13:23:51 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+void    ft_putchar_fd(char c, int fd);
+void    ft_putstr_fd(char *s, int fd);
+void    ft_putendl_fd(char *s, int fd);
+void    ft_putnbr_fd(int n, int fd);
 void	*ft_memset(void *dest, int val, size_t len);
 void	*ft_bzero(void *to, size_t count);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
