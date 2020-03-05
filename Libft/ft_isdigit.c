@@ -6,16 +6,16 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 20:13:12 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/02/13 20:15:08 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/04 20:07:53 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
-    if (c >= 48 && c <= 57)
-        return (1);
-    else
-        return (0);
+	if (c >= 48 && c <= 57)
+		return (1);
+	else
+		return (0);
 }
