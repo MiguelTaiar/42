@@ -6,7 +6,7 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 13:16:26 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/04 20:46:58 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/07 15:19:44 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 	}
 	if (i / 10 > 0)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd(n % 10 + 48, fd);
+		ft_putnbr_fd(i / 10, fd);
+	ft_putchar_fd(i % 10 + 48, fd);
 }

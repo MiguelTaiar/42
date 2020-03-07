@@ -6,7 +6,7 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:07:34 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/04 20:41:48 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/07 17:20:08 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ char	**ft_split(char const *s, char c)
 	size = 0;
 	while (s[++i])
 	{
-		if ((s[i] != c && s[i - 1] == c))
+		if ((i == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c))
 			size++;
 	}
-	if (!(strs = malloc(size * sizeof(char *) + 1)))
+	if (!(strs = ft_calloc(size + 1, sizeof(char *))))
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i] && j <= size)
+	while (s[i] && j < size)
 	{
 		while (s[i] == c)
 			i++;

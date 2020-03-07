@@ -6,7 +6,7 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 22:05:12 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/04 20:44:19 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/07 15:03:24 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ char	*convert(char *nmbr, long n, int size)
 	}
 	while (i >= ctrl)
 	{
-		if (ft_isdigit(n % 10 + 48))
-			nmbr[i] = n % 10 + 48;
+		nmbr[i] = n % 10 + 48;
 		n /= 10;
 		i--;
 	}
@@ -42,8 +41,6 @@ char	*ft_itoa(int n)
 	int		digits;
 	long	i;
 
-	if (n == 0)
-		return ("0");
 	digits = 1;
 	i = n;
 	if (i < 0)
@@ -56,7 +53,7 @@ char	*ft_itoa(int n)
 		i /= 10;
 		digits++;
 	}
-	if (!(nmbr = (char *)malloc((sizeof(char) * digits) + 1)))
+	if (!(nmbr = (char *)malloc(digits + 1 * sizeof(char))))
 		return (NULL);
 	return (convert(nmbr, n, digits));
 }
