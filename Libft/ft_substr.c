@@ -6,7 +6,7 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 20:27:21 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/07 15:15:16 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/08 19:46:53 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	char			*sub;
 
-	if (!(sub = (char *)ft_calloc(len + 1, sizeof(char))) || !s)
+	if (!(sub = (char *)malloc((len + 1) * sizeof(char))) || !s)
 		return (NULL);
 	if (start > ft_strlen(s))
 		return ((char *)sub);
