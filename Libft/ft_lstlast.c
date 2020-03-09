@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 13:05:47 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/09 16:10:22 by mtaiar-s         ###   ########.fr       */
+/*   Created: 2020/03/09 14:19:47 by mtaiar-s          #+#    #+#             */
+/*   Updated: 2020/03/09 15:02:51 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (s)
-	{
-		int		i;
+	t_list	*current;
 
-		i = 0;
-		while (s[i])
-		{
-			write(fd, &s[i], sizeof(char));
-			i++;
-		}
-		write(fd, "\n", 1);
-	}
+	current = lst;
+	while (current && current->next != NULL)
+		current = current->next;
+	return (current);
 }

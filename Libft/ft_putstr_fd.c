@@ -6,7 +6,7 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:01:28 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/07 18:18:55 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/09 16:09:51 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int		i;
-
-	i = 0;
-	while (s[i])
+	if (s)
 	{
-		write(fd, &s[i], sizeof(char));
-		i++;
+		int		i;
+
+		i = 0;
+		while (s[i])
+		{
+			write(fd, &s[i], sizeof(char));
+			i++;
+		}
 	}
 }

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 13:05:47 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/09 16:10:22 by mtaiar-s         ###   ########.fr       */
+/*   Created: 2020/03/09 16:22:03 by mtaiar-s          #+#    #+#             */
+/*   Updated: 2020/03/09 18:01:10 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (s)
-	{
-		int		i;
+	t_list	*final_lst;
+	t_list	*tmp;
 
-		i = 0;
-		while (s[i])
+	final_lst = NULL;
+	while (lst)
+	{
+		if (!(tmp = ft_lstnew(f(lst->content))))
 		{
-			write(fd, &s[i], sizeof(char));
-			i++;
+			ft_lstclear(&final_lst, del);
+			return (NULL);
 		}
-		write(fd, "\n", 1);
+		ft_lstadd_back(&final_lst, tmp);
+		lst = lst->next;
 	}
+	return (final_lst);
 }
