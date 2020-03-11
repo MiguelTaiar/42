@@ -6,7 +6,7 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 14:49:17 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/03/04 19:45:21 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/10 22:49:48 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		free(arr);
 		return (NULL);
 	}
-	arr = ft_bzero(arr, total);
+	arr = ft_memset(arr, 0, total);
 	return (arr);
 }
