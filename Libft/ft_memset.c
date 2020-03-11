@@ -6,7 +6,7 @@
 /*   By: mtaiar-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 14:11:37 by mtaiar-s          #+#    #+#             */
-/*   Updated: 2020/02/03 14:11:38 by mtaiar-s         ###   ########.fr       */
+/*   Updated: 2020/03/10 20:08:05 by mtaiar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	str = s;
 	i = -1;
 	while (++i < n)
-		str[i] = c;
+		str[i] = (unsigned char)c;
 	return (str);
 }
